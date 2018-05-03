@@ -1,0 +1,4 @@
+altera.c:242:12:altera_validate	8	static
+altera.c:54:5:altera_load	16	static
+altera.c:106:5:altera_dump	8	static
+altera.c:146:5:altera_info	16	static

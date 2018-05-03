@@ -1,0 +1,3 @@
+/media/lampa/42583FF2583FE379/intelFPGA_lite/DE10nano/DE10_NANO_SoC_GHRD/software/u-boot-socfpga/spl/board/altera/socfpga/iocsr_config_cyclone5.o: \
+ iocsr_config_cyclone5.c \
+ /media/lampa/42583FF2583FE379/intelFPGA_lite/DE10nano/DE10_NANO_SoC_GHRD/software/u-boot-socfpga/board/altera/socfpga/iocsr_config_cyclone5.h

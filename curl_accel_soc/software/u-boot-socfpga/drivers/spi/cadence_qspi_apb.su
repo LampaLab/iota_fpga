@@ -1,0 +1,17 @@
+cadence_qspi_apb.c:188:21:cadence_qspi_apb_cmd2addr	0	static
+cadence_qspi_apb.c:552:12:cadence_qspi_apb_exec_flash_cmd	24	static
+cadence_qspi_apb.c:323:6:cadence_qspi_apb_controller_enable	0	static
+cadence_qspi_apb.c:332:6:cadence_qspi_apb_controller_disable	0	static
+cadence_qspi_apb.c:369:6:cadence_qspi_apb_readdata_capture	0	static
+cadence_qspi_apb.c:394:6:cadence_qspi_apb_config_baudrate_div	24	static
+cadence_qspi_apb.c:435:6:cadence_qspi_apb_set_clk_mode	0	static
+cadence_qspi_apb.c:454:6:cadence_qspi_apb_chipselect	0	static
+cadence_qspi_apb.c:489:6:cadence_qspi_apb_delay	24	static
+cadence_qspi_apb.c:527:6:cadence_qspi_apb_controller_init	0	static
+cadence_qspi_apb.c:583:5:cadence_qspi_apb_command_read	40	static
+cadence_qspi_apb.c:625:5:cadence_qspi_apb_command_write	32	static
+cadence_qspi_apb.c:679:5:cadence_qspi_apb_indirect_read_setup	24	static
+cadence_qspi_apb.c:757:5:cadence_qspi_apb_indirect_read_execute	40	static
+cadence_qspi_apb.c:795:5:cadence_qspi_apb_indirect_write_setup	16	static
+cadence_qspi_apb.c:828:5:cadence_qspi_apb_indirect_write_execute	32	static
+cadence_qspi_apb.c:886:6:cadence_qspi_apb_enter_xip	0	static

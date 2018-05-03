@@ -1,0 +1,2 @@
+cmd_mii.c:269:13:extract_range	24	static
+cmd_mii.c:286:12:do_mii	128	static

@@ -1,0 +1,12 @@
+designware.c:130:12:dw_write_hwaddr	8	static
+designware.c:287:13:dw_eth_halt	0	static
+designware.c:254:12:dw_eth_recv	24	static
+designware.c:212:12:dw_eth_send	24	static
+designware.c:294:12:eth_mdio_read.isra.2	24	static
+designware.c:321:12:eth_mdio_write	40	static
+designware.c:524:12:dw_mii_write	16	static
+designware.c:513:12:dw_mii_read	16	static
+designware.c:383:12:dw_reset_phy	32	static
+designware.c:417:12:designware_board_phy_init	8	static
+designware.c:147:12:dw_eth_init	40	static
+designware.c:536:5:designware_initialize	32	static

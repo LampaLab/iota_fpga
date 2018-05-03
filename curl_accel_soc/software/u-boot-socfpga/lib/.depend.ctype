@@ -1,0 +1,2 @@
+ctype.o: ctype.c \
+ /media/lampa/42583FF2583FE379/intelFPGA_lite/DE10nano/DE10_NANO_SoC_GHRD/software/u-boot-socfpga/include/linux/ctype.h

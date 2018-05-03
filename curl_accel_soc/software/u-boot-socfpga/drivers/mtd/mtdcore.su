@@ -1,0 +1,5 @@
+mtdcore.c:16:5:add_mtd_device	8	static
+mtdcore.c:50:5:del_mtd_device	8	static
+mtdcore.c:83:18:get_mtd_device	8	static
+mtdcore.c:116:18:get_mtd_device_nm	16	static
+mtdcore.c:138:6:put_mtd_device	0	static

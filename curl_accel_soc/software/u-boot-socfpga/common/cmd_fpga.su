@@ -1,0 +1,2 @@
+cmd_fpga.c:151:5:do_fpga	32	static
+cmd_fpga.c:48:5:fpga_loadbitstream	8	static

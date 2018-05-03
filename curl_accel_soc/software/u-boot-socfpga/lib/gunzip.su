@@ -1,0 +1,4 @@
+gunzip.c:39:7:gzalloc	0	static
+gunzip.c:51:6:gzfree	0	static
+gunzip.c:88:5:zunzip	96	static
+gunzip.c:56:5:gunzip	32	static

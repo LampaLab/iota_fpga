@@ -1,0 +1,2 @@
+stmicro.c:255:5:stmicro_wait_flag_status_ready	16	static
+stmicro.c:287:19:spi_flash_probe_stmicro	40	static

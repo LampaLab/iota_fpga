@@ -1,0 +1,29 @@
+	.arch armv7-a
+	.eabi_attribute 20, 1
+	.eabi_attribute 21, 1
+	.eabi_attribute 23, 3
+	.eabi_attribute 24, 1
+	.eabi_attribute 25, 1
+	.eabi_attribute 26, 2
+	.eabi_attribute 30, 4
+	.eabi_attribute 34, 0
+	.eabi_attribute 18, 4
+	.file	"null"
+	.text
+.Ltext0:
+	.cfi_sections	.debug_frame
+.Letext0:
+	.section	.debug_line,"",%progbits
+.Ldebug_line0:
+	.section	.debug_str,"MS",%progbits,1
+.LASF0:
+	.ascii	"/dev/null\000"
+.LASF1:
+	.ascii	"GNU C11 6.3.1 20170404 -mfloat-abi=soft -mthumb -mt"
+	.ascii	"humb-interwork -mabi=aapcs-linux -march=armv7-a -mn"
+	.ascii	"o-unaligned-access -mtune=cortex-a9 -mfpu=vfpv3-d16"
+	.ascii	" -mtls-dialect=gnu -g -Os -fno-common -ffixed-r8 -f"
+	.ascii	"no-builtin -ffreestanding -fno-stack-protector -fst"
+	.ascii	"ack-usage\000"
+	.ident	"GCC: (Linaro GCC 6.3-2017.05) 6.3.1 20170404"
+	.section	.note.GNU-stack,"",%progbits

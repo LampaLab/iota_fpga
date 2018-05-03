@@ -1,0 +1,3 @@
+eabi_compat.c:14:5:raise	8	static
+eabi_compat.c:24:6:__aeabi_unwind_cpp_pr0	0	static
+eabi_compat.c:28:6:__aeabi_unwind_cpp_pr1	0	static

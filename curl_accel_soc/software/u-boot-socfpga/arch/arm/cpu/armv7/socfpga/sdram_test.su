@@ -1,0 +1,3 @@
+sdram_test.c:23:14:get_next_prbs31	0	static
+sdram_test.c:38:5:test_rand_address	40	static
+sdram_test.c:82:5:hps_emif_diag_test	16	static
