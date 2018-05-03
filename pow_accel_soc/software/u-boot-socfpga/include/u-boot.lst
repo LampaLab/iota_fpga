@@ -1,0 +1,9 @@
+_u_boot_list__start = .;
+_u_boot_list_cmd__start = .;
+*(SORT(.u_boot_list.cmd.*));
+_u_boot_list_cmd__end = .;
+_u_boot_list_env_clbk__start = .;
+*(SORT(.u_boot_list.env_clbk.*));
+_u_boot_list_env_clbk__end = .;
+*(SORT(.u_boot_list.*));
+_u_boot_list__end = .;

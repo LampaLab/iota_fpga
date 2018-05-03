@@ -1,0 +1,6 @@
+misc.c:64:6:socfpga_fpga_add	8	static
+misc.c:75:5:print_cpuinfo	8	static
+misc.c:81:5:misc_init_r	40	static
+misc.c:134:5:overwrite_console	0	static
+misc.c:144:5:cpu_mmc_init	0	static
+misc.c:155:6:enable_caches	0	static

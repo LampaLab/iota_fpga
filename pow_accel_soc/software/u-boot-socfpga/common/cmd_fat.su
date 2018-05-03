@@ -1,0 +1,4 @@
+cmd_fat.c:36:5:do_fat_fsload	16	static
+cmd_fat.c:55:12:do_fat_ls	16	static
+cmd_fat.c:67:12:do_fat_fsinfo	120	static
+cmd_fat.c:100:12:do_fat_fswrite	128	static

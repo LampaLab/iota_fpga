@@ -1,0 +1,11 @@
+cmd_mem.c:1092:5:do_mem_crc	40	static
+cmd_mem.c:439:12:do_mem_base	8	static
+cmd_mem.c:162:12:do_mem_mw	24	static
+cmd_mem.c:453:12:do_mem_loop	16	static
+cmd_mem.c:57:12:do_mem_md	40	static
+cmd_mem.c:329:12:do_mem_cp	24	static
+cmd_mem.c:259:12:do_mem_cmp	56	static
+cmd_mem.c:600:12:do_mem_mtest	40	static
+cmd_mem.c:959:1:mod_mem.isra.0	40	static
+cmd_mem.c:153:12:do_mem_mm	0	static
+cmd_mem.c:157:12:do_mem_nm	0	static

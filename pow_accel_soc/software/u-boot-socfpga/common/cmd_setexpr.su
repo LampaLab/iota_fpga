@@ -1,0 +1,2 @@
+cmd_setexpr.c:31:14:get_arg	8	static
+cmd_setexpr.c:53:12:do_setexpr	40	static

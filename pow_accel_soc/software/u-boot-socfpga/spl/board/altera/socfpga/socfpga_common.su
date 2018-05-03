@@ -1,0 +1,5 @@
+socfpga_common.c:63:13:setenv_ethaddr_eeprom	32	static
+socfpga_common.c:35:5:board_early_init_f	8	static
+socfpga_common.c:50:5:board_init	8	static
+socfpga_common.c:101:5:board_late_init	16	static
+socfpga_common.c:173:5:board_eth_init	0	static

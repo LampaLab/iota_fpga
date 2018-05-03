@@ -1,0 +1,5 @@
+ns16550.c:37:6:NS16550_init	8	static
+ns16550.c:73:6:NS16550_reinit	0	static
+ns16550.c:99:6:NS16550_putc	0	static
+ns16550.c:116:6:NS16550_getc	8	static
+ns16550.c:128:5:NS16550_tstc	0	static

@@ -1,0 +1,4 @@
+tftp.c:314:1:TftpSend	32	static
+tftp.c:446:1:TftpHandler	24	static
+tftp.c:675:1:TftpTimeout	16	static
+tftp.c:688:6:TftpStart	32	static

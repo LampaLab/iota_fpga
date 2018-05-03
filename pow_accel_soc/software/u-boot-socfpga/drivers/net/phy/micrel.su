@@ -1,0 +1,5 @@
+micrel.c:109:12:ksz9021_startup	16	static
+micrel.c:87:12:ksz9021_config	24	static
+micrel.c:70:5:ksz9021_phy_extended_write	24	static
+micrel.c:79:5:ksz9021_phy_extended_read	24	static
+micrel.c:140:5:phy_micrel_init	8	static

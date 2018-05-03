@@ -1,0 +1,2 @@
+altera_dw_mmc.c:34:13:altera_dwmci_clksel	0	static
+altera_dw_mmc.c:61:5:altera_dwmmc_init	16	static

@@ -1,0 +1,332 @@
+
+SOCFPGA Documentation for U-Boot and SPL
+--------------------------------------------
+
+This README is about U-Boot and SPL support for Altera's ARM Cortex-A9MPCore
+based SoC FPGAs. This README will explain the steps on how to build and run the
+U-Boot and SPL. To know more about the hardware itself, please refer to
+www.altera.com.
+
+
+
+Building U-Boot and SPL
+-----------------------
+
+1. cd <U-Boot directory>
+2. export CROSS_COMPILE=arm-none-eabi-
+3. make mrproper
+4. ./MAKEALL socfpga_cyclone5 or ./MAKEALL socfpga_arria5
+
+For Virtual target, please "#define CONFIG_SOCFPGA_VIRTUAL_TARGET"
+at include/configs/socfpga_cyclone5.h or socfpga_arria5.h
+
+Output File:
+
+a. U-Boot output binary file is located at <U-Boot directory>/u-boot.img
+(binary files with mkimage signature)
+
+b. Preloader (SPL) output binary file is located at <U-Boot directory>/
+spl/u-boot-spl.bin
+
+Do note for dev kit, you need to call mkpimage provided by Altera to
+generate the header required by BootROM.
+
+
+Running at Virtual Platform
+---------------------------
+
+To boot from Preloader (SPL) -> U-Boot -> Kernel, below is the script
+for NativeApps.script. Do note below script is using ram boot option where all
+boot image will be preloaded to SDRAM.
+
+[DEV5XS1.Board.DDR_DRAM]l @0x7fc0 -bin uImage
+[DEV5XS1.Board.DDR_DRAM]l @0x100 -bin socfpga5xs1-vt.dtb
+[DEV5XS1.Board.DDR_DRAM]l @0x08000000 -bin <u-boot path>/u-boot.img
+[DEV5XS1.Board.HPS.OnChipRAM]l @0x0 -bin <u-boot path>/spl/u-boot-spl.bin
+[DEV5XS1.Board.HPS.CortexA9_MPCore.cortex_a9_axi_0]r pc=0xFFFF0000
+g
+
+
+For other boot option, below are the scripts to load them into flashes. Do
+ensure you configure the Preloader and U-Boot accordingly. Do refer
+to later section for more details.
+
+
+1. QSPI boot
+
+a. To load u-boot.img into QSPI flash, please use below line:
+"[DEV5XS1.Board.HPS.L4_APB_Periphs.N25Q128_0]l @0x60000 s-bin u-boot.img"
+(Do note address 0x60000 is defined by CONFIG_PRELOADER_QSPI_NEXT_BOOT_IMAGE at
+board/altera/socfpga/build.h)
+
+b. To load uImage into QSPI flash, please use below line:
+"[DEV5XS1.Board.HPS.L4_APB_Periphs.N25Q128_0]l @0xA0000 -bin uImage"
+(Do note offset 0xA0000 is defined by qspibootimageaddr environment variable at
+include/configs/socfpga.h)
+
+c. To load Device Tree Blob (DTB) into QSPI flash, please use below line:
+"[DEV5XS1.Board.HPS.L4_APB_Periphs.N25Q128_0]l @0x50000 -bin socfpga5xs1-vt.dtb"
+(Do note offset 0x50000 is defined by qspifdtaddr environment variable at
+include/configs/socfpga.h)
+
+
+2. SDMMC boot
+
+a. To load u-boot.img into SDMMC, there is 2 options available:
+
+i. Custom partition A2
+A custom partition with ID "A2" is created. Then, the image is store inside the
+partition. It will be located at offset of 0x40000 from the start of partition.
+Do note the SDMMC driver will try to search for this custom partition first.
+If cannot find a valid image, it will then try with second option which is the
+raw image.
+(Do note offset 0x40000 is defined by CONFIG_PRELOADER_SDMMC_NEXT_BOOT_IMAGE at
+board/altera/socfpga/build.h)
+
+ii. Raw image
+This option is treating whole SDMMC image as raw image. With that, please use
+below line:
+"[DEV5XS1.Board.HPS.L4_APB_Periphs.MMCorSDFlashCard0]l -bin 0x40000 u-boot.img".
+(Do note address 0x40000 is defined by CONFIG_PRELOADER_SDMMC_NEXT_BOOT_IMAGE at
+board/altera/socfpga/build.h)
+
+b. To load uImage into SDMMC card, you need to create a FAT partition where the
+uImage will be included inside the FAT partition.
+
+c. To load Device Tree Blob (DTB) into SDMMC card, you need to include the
+DTB file inside the FAT partition.
+
+
+
+Boot option configuration
+-------------------------
+
+This section will explain how you can configure Preloader and U-Boot
+to use other boot option instead of default ram boot option.
+
+
+QSPI boot
+
+For Preloader to load U-Boot image from QSPI flash, you need to configure
+as below at the configuration file board/altera/socfpga/build.h.
+#define CONFIG_PRELOADER_BOOT_FROM_QSPI		(1)
+#define CONFIG_PRELOADER_BOOT_FROM_SDMMC	(0)
+#define CONFIG_PRELOADER_BOOT_FROM_RAM		(0)
+
+For U-Boot to load uImage from QSPI flash, you can invoke U-Boot command
+console and type "run qspiload" at the console. To make it as default, please
+#define CONFIG_BOOTCOMMAND "run qspiload; run ramboot"
+
+Besides that, there is option for kernel to use file system which is located
+inside the qspi flash. To do that, you need to call "run qspiboot" instead
+"run ramboot".
+
+
+SDMMC boot
+
+For Preloader to load U-Boot image from SDMMC card, you need to configure
+as below at the configuration file board/altera/socfpga/build.h
+#define CONFIG_PRELOADER_BOOT_FROM_QSPI		(0)
+#define CONFIG_PRELOADER_BOOT_FROM_SDMMC	(1)
+#define CONFIG_PRELOADER_BOOT_FROM_RAM		(0)
+
+For U-Boot to load uImage from SDMMC card, you can invoke U-Boot command
+console and type "run mmcload" at the console. To make it as default, please
+#define CONFIG_BOOTCOMMAND "run mmcload; run ramboot"
+
+Besides that, there is option for kernel to use file system which is located
+inside the SDMMC card. To do that, you need to call "run mmcboot" instead
+"run ramboot".
+
+
+Usage of registers SYSMGR.ISWGRP.HANDOFF
+----------------------------------------
+Below are "Preloader to bootloader" handoff register and handoff value.
+These handoff value are provided by the tools (to Preloader) based on user Qsys
+design. As of now, these handoff registers mainly contain the info for bridges
+between the HPS and FPGA as below
+
+
+SYSMGR.ISWGRP.HANDOFF0 	- hps axi bridges (RSTMGR.BRGMODRST)
+SYSMGR.ISWGRP.HANDOFF1	- hps l3 remap (L3REGS.REMAP)
+SYSMGR.ISWGRP.HANDOFF2	- hps peripheral controller to fpga bridge
+				(SYSMGR.FPGAINTF.MODULE)
+SYSMGR.ISWGRP.HANDOFF3	- fpga to hps sdram bridge (SDR.CTRLGRP.FPGAPORTRST)
+SYSMGR.ISWGRP.HANDOFF4	- row bits handed off by Altera tools
+SYSMGR.ISWGRP.HANDOFF5	- unused
+SYSMGR.ISWGRP.HANDOFF6	- unused
+SYSMGR.ISWGRP.HANDOFF7	- unused
+
+
+If user reprogram the FPGA at U-Boot, all the HPS and FPGA bridges will be
+disabled. This is to prevent the noise generated during FPGA programming from
+going into HPS domain. But U-Boot will not enable back the bridge later as
+U-Boot won't have the knowledge about the bridges used by SOF file. User need
+to release the HPS and FPGA bridges based on their design.
+
+But if the SOF programmed by U-Boot matched with the design to generate
+Preloader handoff files, user can program the bridges at U-Boot based on these
+handoff value. It provide a faster mean for user to re-enable the bridges.
+These additional steps can be saved as series of action for FPGA programming
+(which as part of U-Boot environment too).
+
+---
+
+As example, below are steps if U-Boot programming the FPGA with the same design
+that used to generate Preloader handoff.
+
+> fatload mmc 0:1 $fpgadata my_design.rbf
+> fpga load 0 $fpgadata $filesize
+> run bridge_enable_handoff
+
+
+where bridge_enable_handoff will execute below steps
+> mw $fpgaintf $fpgaintf_handoff
+> go $fpga2sdram_apply
+> mw $fpga2sdram $fpga2sdram_handoff
+> mw $axibridge $axibridge_handoff
+> mw $l3remap $l3remap_handoff
+> md $fpgaintf
+> md $fpga2sdram
+> md $axibridge
+
+* For your info, below U-Boot environment are referring to particular address
+- "fpgaintf" 	-	SYSMGR.FPGAINTF.MODULE
+- "fpga2sdram" 	-	SDR.CTRLGRP.FPGAPORTRST
+- "axibridge"	-	RSTMGR.BRGMODRST
+- "l3remap"	-	L3REGS.REMAP
+
+---
+
+To disable all bridge, just "run bridge_disable"
+
+----
+
+If using the new SOF which is different than handoff, please use below commands
+
+For HPS peripheral controller to FPGA interface
+> mw $fpgaintf <my_fpgaintf_new_value>
+
+For FPGA to SDRAM bridge
+> go $fpga2sdram_apply
+> mw $fpga2sdram <my_fpga2sdram_new_value>
+
+For AXI bridges (HPS2FPGA, LWHPS2FPGA, FPGA2HPS)
+> mw $axibridge <my_axibridge_new_value>
+> mw $l3remap <my_l3remap_new_value>
+
+* To understand the value required, please refer to address map info page at
+http://www.altera.com/literature/hb/cyclone-v/hps.html
+
+
+
+NAND support
+----------------------------------------
+In SoCFPGA, we are using Denali NAND controller from Cadence. This controller
+implemented HW ECC where it will auto calculate the ECC and append within the
+data during write. During read, it will auto correct when ECC error happen.
+If the error is un-correctable, it will issue interrupt to indicate to the host.
+
+Controller configuration and driver features
+1. Using Main + spare area for data storage
+2. Using 512 byte sectors protected with 8 bit ECC
+3. To ensure minimum data transfer latency, the driver is utilizing the DMA
+   to read and write to the NAND flash.
+4. Bad block management with bad block table located at end of flash
+
+Example layout for NAND flash
+For standard 2048 data + 128 spare page flash (default)
+a. 1st Preloader image - 0x0
+b. 2nd Preloader image - 0x20000
+c. 3rd Preloader image - 0x40000
+d. 4th Preloader image - 0x60000
+e. U-Boot environment - 0x80000
+f. DTB image - 0xA0000
+g. U-Boot image - 0xC0000
+h. Linux zImage - 0x120000
+.
+For standard 4096 data page flash
+a. 1st Preloader image - 0x0
+b. 2nd Preloader image - 0x40000
+c. 3rd Preloader image - 0x80000
+d. 4th Preloader image - 0xC0000
+e. U-Boot environment - 0x100000
+f. DTB image - 0x140000
+g. U-Boot image - 0x180000
+h. Linux zImage - 0x200000
+
+Preloader driver configuration
+For Preloader, its design to support multiple NAND device include
+non ONFI. With that, you would need to configure below macro according to
+the NAND flash used
+
+Location: board/altera/socfpga/build.h
+#define CONFIG_PRELOADER_BOOT_FROM_NAND		(1)
+#define CONFIG_PRELOADER_NAND_NEXT_BOOT_IMAGE	(0xC0000)
+
+Location: include/configs/socfpga_common.h
+#define CONFIG_SYS_NAND_PAGE_SIZE	2048
+#define CONFIG_SYS_NAND_OOBSIZE		64
+#define CONFIG_SYS_NAND_BLOCK_SIZE	(128 * 1024)
+/ number of pages per block /
+#define CONFIG_SYS_NAND_PAGE_COUNT	64
+
+U-Boot driver configuration
+For U-Boot, no configuration is required as it will pick the info through
+ONFI signature. While for non ONFI part, it should be based on existing table
+listed in NAND base driver. At same time, you would need to configure below
+macro according to the page size of NAND flash used
+
+Location: include/configs/socfpga_common.h
+"nandbootimageaddr=0x120000\0" \
+"nandfdtaddr=0xA0000\0" \
+...
+/ environment setting for NAND /
+#ifdef CONFIG_ENV_IS_IN_NAND
+#define CONFIG_ENV_OFFSET (0x00080000) <---
+#endif
+...
+#define CONFIG_NAND_DENALI
+
+
+HPS EMAC address / EEPROM support
+----------------------------------------
+Within Altera dev kit, there is an EEPROM chip 24LC32A. This chip is being used
+to store board related information which include EMAC address. As of now,
+user have the option to get the EMAC address from below location
+
+1. Environment data that saved within flashes
+   > setenv ethaddr 02:11:22:33:44:55
+   > saveenv
+   After this is done once, U-Boot will set the ethaddr value every time its
+   boot up. This information then passed to kernel.
+
+2. EEPROM
+   Upon boot up, U-Boot will check whether ethaddr environment variable is
+   available. If not, U-Boot will grab it from EEPROM and assign to ethaddr if
+   its valid. At same time, user can invoke it manually using below command.
+   > go $setenv_ethaddr_eeprom
+   After this command being called, U-Boot will grab the EMAC address from
+   EEPROM and set the ethaddr value. This information then passed to kernel.
+
+Per current EEPROM layout, the location of EMAC address is located as below
+- 0x16c for HPS EMAC 0 address
+- 0x174 for HPS EMAC 1 address
+
+To view the EMAC address, you can use the i2c console command as below
+> SOCFPGA_CYCLONE5 # i2c md 0x51 0x174.2 6
+> 0174: 55 44 33 22 11 02    UD3"..
+
+To modify the EMAC address, you can the i2c console command as below
+> SOCFPGA_CYCLONE5 # i2c mm 0x51 0x174.2
+> 00000174: 55 ? 55
+> 00000175: 44 ? 44
+> 00000176: 33 ? 33
+> 00000177: 22 ? 22
+> 00000178: 11 ? 11
+> 00000179: 02 ? 02
+
+< Note if you are not using Altera dev kit >
+Do note that the function which set the ethaddr from EEPROM is located at
+board/altera/socfpga/socfpga_common.c as this is board specific code. You would
+need to copy and modify this code based on your board specific implementation.

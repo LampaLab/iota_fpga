@@ -1,0 +1,14 @@
+asix.c:572:13:asix_halt	0	static
+asix.c:476:12:asix_send	1640	static
+asix.c:507:12:asix_recv	2144	static
+asix.c:121:12:asix_write_cmd.isra.0	48	static
+asix.c:302:12:asix_write_hwaddr	152	static
+asix.c:199:1:asix_mdio_write	160	static
+asix.c:214:12:asix_sw_reset	16	static
+asix.c:143:12:asix_read_cmd.isra.1	48	static
+asix.c:184:12:asix_mdio_read	160	static
+asix.c:260:12:asix_read_rx_ctl	144	static
+asix.c:416:12:asix_init	152	static
+asix.c:580:6:asix_eth_before_probe	0	static
+asix.c:609:5:asix_eth_probe	32	static
+asix.c:695:5:asix_eth_get_info	160	static

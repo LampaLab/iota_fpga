@@ -1,0 +1,2 @@
+/media/lampa/42583FF2583FE379/intelFPGA_lite/DE10nano/DE10_NANO_SoC_GHRD/software/u-boot-socfpga/spl/board/altera/socfpga/sdram/tclrpt.o: \
+ tclrpt.c sequencer_defines.h

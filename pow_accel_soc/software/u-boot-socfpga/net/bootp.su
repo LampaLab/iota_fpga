@@ -1,0 +1,5 @@
+bootp.c:701:13:DhcpOptionsProcess	40	static
+bootp.c:885:1:DhcpHandler	56	static
+bootp.c:601:1:BootpRequest	56	static
+bootp.c:328:1:BootpTimeout	8	static
+bootp.c:959:6:DhcpRequest	0	static

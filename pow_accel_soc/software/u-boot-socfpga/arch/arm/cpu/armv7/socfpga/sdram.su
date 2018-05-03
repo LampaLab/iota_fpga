@@ -1,0 +1,5 @@
+sdram.c:68:6:sdram_enable_interrupt	0	static
+sdram.c:85:6:irq_handler_ecc_sdram	8	static
+sdram.c:1489:15:sdram_calculate_size	0	static
+sdram.c:54:5:dram_init	8	static
+sdram.c:1556:6:sdram_ecc_init	56	static

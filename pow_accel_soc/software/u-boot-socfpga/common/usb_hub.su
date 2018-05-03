@@ -1,0 +1,10 @@
+usb_hub.c:87:12:usb_set_port_feature	40	static
+usb_hub.c:109:13:usb_hub_power_on	16	static
+usb_hub.c:101:12:usb_get_port_status	40	static
+usb_hub.c:80:12:usb_clear_port_feature	40	static
+usb_hub.c:73:12:usb_get_hub_descriptor	40	static
+usb_hub.c:127:6:usb_hub_reset	0	static
+usb_hub.c:153:5:hub_port_reset	160	static
+usb_hub.c:207:6:usb_hub_port_connect_change	160	static
+usb_hub.c:270:12:usb_hub_configure	768	static
+usb_hub.c:480:5:usb_hub_probe	0	static

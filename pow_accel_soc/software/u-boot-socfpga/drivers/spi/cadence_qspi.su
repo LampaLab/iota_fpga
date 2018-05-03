@@ -1,0 +1,12 @@
+cadence_qspi.c:52:6:spi_set_speed	32	static
+cadence_qspi.c:97:6:spi_free_slave	0	static
+cadence_qspi.c:104:6:spi_init	8	static
+cadence_qspi.c:112:5:spi_calibration	56	static
+cadence_qspi.c:190:5:spi_claim_bus	16	static
+cadence_qspi.c:226:6:spi_release_bus	0	static
+cadence_qspi.c:231:5:spi_xfer	56	static
+cadence_qspi.c:321:5:spi_cs_is_valid	8	static
+cadence_qspi.c:66:19:spi_setup_slave	24	static
+cadence_qspi.c:338:6:spi_cs_activate	0	static
+cadence_qspi.c:343:6:spi_cs_deactivate	0	static
+cadence_qspi.c:348:6:spi_enter_xip	0	static

@@ -1,0 +1,8 @@
+crc7.o: crc7.c \
+ /media/lampa/42583FF2583FE379/intelFPGA_lite/DE10nano/DE10_NANO_SoC_GHRD/software/u-boot-socfpga/include/linux/types.h \
+ /media/lampa/42583FF2583FE379/intelFPGA_lite/DE10nano/DE10_NANO_SoC_GHRD/software/u-boot-socfpga/include/linux/config.h \
+ /media/lampa/42583FF2583FE379/intelFPGA_lite/DE10nano/DE10_NANO_SoC_GHRD/software/u-boot-socfpga/include/linux/posix_types.h \
+ /media/lampa/42583FF2583FE379/intelFPGA_lite/DE10nano/DE10_NANO_SoC_GHRD/software/u-boot-socfpga/include/linux/stddef.h \
+ /media/lampa/42583FF2583FE379/intelFPGA_lite/DE10nano/DE10_NANO_SoC_GHRD/software/u-boot-socfpga/include/asm/posix_types.h \
+ /media/lampa/42583FF2583FE379/intelFPGA_lite/DE10nano/DE10_NANO_SoC_GHRD/software/u-boot-socfpga/include/asm/types.h \
+ /media/lampa/42583FF2583FE379/intelFPGA_lite/DE10nano/DE10_NANO_SoC_GHRD/software/u-boot-socfpga/include/linux/crc7.h

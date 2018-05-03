@@ -1,0 +1,10 @@
+main.c:1169:15:delete_char.part.0	24	static
+main.c:733:13:cread_add_char	24	static
+main.c:61:13:__show_boot_progress	0	static
+main.c:1030:5:readline_into_buffer	80	static
+main.c:1018:5:readline	0	static
+main.c:1201:5:parse_line	16	static
+main.c:1474:5:run_command	0	static
+main.c:1534:5:run_command_list	16	static
+main.c:353:6:main_loop	32	static
+main.c:1578:5:do_run	24	static
