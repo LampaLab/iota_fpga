@@ -2,7 +2,6 @@ Makefile
 cmake_install.cmake
 CTestTestfile.cmake
 Testing
-bin
 CMakeFiles
 CMakeCache.txt
 .ninja*
