@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: CCurl
+Version: 0.2.0
+Description: CCurl - IOTA POW Accelerator
+Vendor: IOTA Foundation
+Libs: -L${libdir} -lccurl
+Cflags: -I${includedir}/ccurl

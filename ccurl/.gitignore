@@ -9,7 +9,6 @@ CMakeCache.txt
 *.swp
 vgcore*
 tags/
-build
 scripts/node_modules/
 scripts/nines
 .ycm*
