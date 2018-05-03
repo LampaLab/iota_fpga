@@ -1,0 +1,2 @@
+debug_memory.c:25:6:debug_memory	0	static
+debug_memory.c:76:6:debug_memory_print	0	static

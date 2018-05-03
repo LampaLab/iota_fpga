@@ -1,0 +1,8 @@
+clock_manager.c:140:5:cm_basic_init	56	static
+clock_manager.c:497:15:cm_get_mpu_clk_hz	8	static
+clock_manager.c:515:15:cm_get_sdram_clk_hz	8	static
+clock_manager.c:543:15:cm_get_l4_sp_clk_hz	8	static
+clock_manager.c:598:15:cm_get_mmc_controller_clk_hz	8	static
+clock_manager.c:650:15:cm_get_qspi_controller_clk_hz	8	static
+clock_manager.c:699:6:cm_print_clock_quick_summary	8	static
+clock_manager.c:721:6:cm_derive_clocks_for_drivers	8	static

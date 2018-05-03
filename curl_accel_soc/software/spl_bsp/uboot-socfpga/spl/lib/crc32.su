@@ -1,0 +1,3 @@
+crc32.c:177:18:crc32_no_comp	20	static
+crc32.c:219:18:crc32	8	static
+crc32.c:228:18:crc32_wd	24	static

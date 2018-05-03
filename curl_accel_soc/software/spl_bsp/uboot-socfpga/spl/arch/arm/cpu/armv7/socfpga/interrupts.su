@@ -1,0 +1,4 @@
+interrupts.c:28:6:do_irq	16	static
+interrupts.c:49:5:arch_interrupt_init	8	static
+interrupts.c:67:5:irq_register	16	static
+interrupts.c:81:6:irq_trigger	0	static

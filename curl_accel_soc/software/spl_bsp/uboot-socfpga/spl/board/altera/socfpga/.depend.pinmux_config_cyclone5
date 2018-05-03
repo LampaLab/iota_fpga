@@ -1,0 +1,3 @@
+/home/lampa/Desktop/curl/curl_fpga/software/spl_bsp/uboot-socfpga/spl/board/altera/socfpga/pinmux_config_cyclone5.o: \
+ pinmux_config_cyclone5.c \
+ /home/lampa/Desktop/curl/curl_fpga/software/spl_bsp/uboot-socfpga/board/altera/socfpga/pinmux_config.h

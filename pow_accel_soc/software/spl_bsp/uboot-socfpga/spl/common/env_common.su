@@ -1,0 +1,9 @@
+env_common.c:46:14:__env_get_char_spec	0	static
+env_common.c:76:14:env_get_addr	0	static
+env_common.c:62:7:env_get_char_memory	8	static
+env_common.c:67:7:env_get_char	0	static
+env_common.c:88:5:getenv_yesno	8	static
+env_common.c:101:7:getenv_default	16	static
+env_common.c:116:6:set_default_env	24	static
+env_common.c:148:5:set_default_vars	24	static
+env_common.c:193:6:env_relocate	0	static

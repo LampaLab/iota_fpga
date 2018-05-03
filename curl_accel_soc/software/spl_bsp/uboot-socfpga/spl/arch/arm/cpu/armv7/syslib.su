@@ -1,0 +1,3 @@
+syslib.c:34:6:sdelay	0	static
+syslib.c:43:6:sr32	8	static
+syslib.c:57:5:wait_on_value	12	static

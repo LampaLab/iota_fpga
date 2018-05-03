@@ -1,0 +1,5 @@
+pl330.c:783:6:pl330_stop	8	static
+pl330.c:832:5:pl330_transfer_setup	80	static
+pl330.c:1087:5:pl330_transfer_start	16	static
+pl330.c:1103:5:pl330_transfer_finish	8	static
+pl330.c:1132:5:pl330_transfer_zeroes	72	static

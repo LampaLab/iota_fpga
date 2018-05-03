@@ -1,0 +1,2 @@
+ecc_ram.c:29:6:irq_handler_ecc_ocram_corrected	8	static
+ecc_ram.c:39:6:irq_handler_ecc_ocram_uncorrected	8	static

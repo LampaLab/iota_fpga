@@ -1,0 +1,5 @@
+designware_wdt.c:41:5:designware_wdt_settimeout	0	static
+designware_wdt.c:57:6:designware_wdt_enable	0	static
+designware_wdt.c:64:14:designware_wdt_is_enabled	0	static
+designware_wdt.c:72:6:hw_watchdog_reset	0	static
+designware_wdt.c:80:6:hw_watchdog_init	8	static

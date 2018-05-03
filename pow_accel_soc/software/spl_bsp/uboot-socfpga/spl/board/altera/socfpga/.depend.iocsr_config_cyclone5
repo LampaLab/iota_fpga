@@ -1,0 +1,3 @@
+/home/lampa/Desktop/curl/curl_fpga/software/spl_bsp/uboot-socfpga/spl/board/altera/socfpga/iocsr_config_cyclone5.o: \
+ iocsr_config_cyclone5.c \
+ /home/lampa/Desktop/curl/curl_fpga/software/spl_bsp/uboot-socfpga/board/altera/socfpga/iocsr_config_cyclone5.h

@@ -1,0 +1,2 @@
+system_manager.c:63:6:sysmgr_pinmux_init	8	static
+system_manager.c:92:6:sysmgr_sdmmc_pweren_mux_check	0	static

@@ -1,0 +1,12 @@
+fpga_manager.c:43:12:is_fpgamgr_initdone_high	0	static
+fpga_manager.c:56:12:fpgamgr_get_mode	0	static
+fpga_manager.c:99:13:fpgamgr_set_cd_ratio	0	static
+fpga_manager.c:108:12:fpgamgr_dclkcnt_set	0	static
+fpga_manager.c:66:5:is_fpgamgr_fpga_ready	8	static
+fpga_manager.c:80:5:poll_fpgamgr_fpga_ready	8	static
+fpga_manager.c:130:5:fpgamgr_program_init	8	static
+fpga_manager.c:212:6:fpgamgr_program_write	0	static
+fpga_manager.c:219:5:fpgamgr_program_poll_cd	0	static
+fpga_manager.c:246:5:fpgamgr_program_poll_initphase	8	static
+fpga_manager.c:269:5:fpgamgr_program_poll_usermode	8	static
+fpga_manager.c:296:5:fpgamgr_program_fpga	16	static

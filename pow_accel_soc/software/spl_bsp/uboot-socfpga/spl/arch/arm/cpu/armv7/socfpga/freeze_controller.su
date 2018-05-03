@@ -1,0 +1,3 @@
+freeze_controller.c:46:1:sys_mgr_frzctrl_freeze_req	0	static
+freeze_controller.c:197:1:sys_mgr_frzctrl_thaw_req	16	static
+freeze_controller.c:381:1:sys_mgr_frzctrl_frzchn_is_frozen	0	static

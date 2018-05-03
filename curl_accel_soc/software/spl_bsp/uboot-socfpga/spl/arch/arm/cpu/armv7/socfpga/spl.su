@@ -1,0 +1,4 @@
+spl.c:59:6:board_init_f	8	static
+spl.c:70:5:spl_boot_device	0	static
+spl.c:84:5:spl_boot_mode	0	static
+spl.c:314:6:spl_board_init	120	static

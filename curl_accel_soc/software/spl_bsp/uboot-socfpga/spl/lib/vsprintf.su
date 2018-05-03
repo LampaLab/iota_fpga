@@ -1,0 +1,15 @@
+vsprintf.c:183:14:put_dec_trunc	20	static
+vsprintf.c:261:23:put_dec	48	static
+vsprintf.c:393:14:string.isra.0	16	static
+vsprintf.c:294:14:number.isra.4	120	static
+vsprintf.c:539:12:vsnprintf_internal.isra.6	120	static
+vsprintf.c:42:15:simple_strtoul	20	static
+vsprintf.c:74:5:strict_strtoul	32	static
+vsprintf.c:98:6:simple_strtol	8	static
+vsprintf.c:106:15:ustrtoul	8	static
+vsprintf.c:129:20:simple_strtoull	32	static
+vsprintf.c:796:5:vsprintf	0	static
+vsprintf.c:801:5:sprintf	12	static
+vsprintf.c:812:6:panic	16	static
+vsprintf.c:829:6:__assert_fail	16	static
+vsprintf.c:837:7:simple_itoa	24	static

@@ -1,0 +1,4 @@
+dw_mmc.c:296:13:dwmci_set_ios	24	static
+dw_mmc.c:125:12:dwmci_send_cmd	32	dynamic
+dw_mmc.c:319:12:dwmci_init	0	static
+dw_mmc.c:355:5:add_dwmci	24	static

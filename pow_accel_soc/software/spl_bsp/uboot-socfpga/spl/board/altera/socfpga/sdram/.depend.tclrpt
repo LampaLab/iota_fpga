@@ -1,0 +1,2 @@
+/home/lampa/Desktop/curl/curl_fpga/software/spl_bsp/uboot-socfpga/spl/board/altera/socfpga/sdram/tclrpt.o: \
+ tclrpt.c sequencer_defines.h
