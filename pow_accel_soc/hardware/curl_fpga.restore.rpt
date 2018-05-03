@@ -1,0 +1,166 @@
+Restore Archived Project report for curl_fpga
+Thu May  3 23:15:26 2018
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Restore Archived Project Summary
+  3. Restore Archived Project Messages
+  4. Files Restored
+  5. Files Not Restored
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Restore Archived Project Summary                                        ;
++---------------------------------+---------------------------------------+
+; Restore Archived Project Status ; Successful - Thu May  3 23:15:26 2018 ;
+; Revision Name                   ; curl_fpga                             ;
+; Top-level Entity Name           ; soc_top                               ;
+; Family                          ; Cyclone V                             ;
++---------------------------------+---------------------------------------+
+
+
++-----------------------------------+
+; Restore Archived Project Messages ;
++-----------------------------------+
+Info: Successfully restored '/home/lampa/Desktop/curl/curl_pow_fpga/curl_fpga_tmp_archive.qar' into the '/home/lampa/iota_fpga/pow_accel_soc/hardware' directory
+Info: Generated report 'curl_fpga.restore.rpt'
+
+
++---------------------------------------------------------------------------------------------------+
+; Files Restored                                                                                    ;
++---------------------------------------------------------------------------------------------------+
+; File Name                                                                                         ;
++---------------------------------------------------------------------------------------------------+
+; qar_info.json                                                                                     ;
+; LFSR27trit.v                                                                                      ;
+; constraints.sdc                                                                                   ;
+; curl_avalon.v                                                                                     ;
+; curl_fpga.qpf                                                                                     ;
+; curl_fpga.qsf                                                                                     ;
+; curl_fpga_assignment_defaults.qdf                                                                 ;
+; curl_pow.v                                                                                        ;
+; latency_aware_read_master.v                                                                       ;
+; soc_system.qsys                                                                                   ;
+; soc_system.sopcinfo                                                                               ;
+; soc_system/soc_system.cmp                                                                         ;
+; soc_system/synthesis/soc_system.debuginfo                                                         ;
+; soc_system/synthesis/soc_system.qip                                                               ;
+; soc_system/synthesis/soc_system.regmap                                                            ;
+; soc_system/synthesis/soc_system.v                                                                 ;
+; soc_system/synthesis/soc_system_hps_0_hps.svd                                                     ;
+; soc_system/synthesis/submodules/altdq_dqs2_acv_connect_to_hard_phy_cyclonev.sv                    ;
+; soc_system/synthesis/submodules/altera_avalon_mm_bridge.v                                         ;
+; soc_system/synthesis/submodules/altera_avalon_sc_fifo.v                                           ;
+; soc_system/synthesis/submodules/altera_avalon_st_pipeline_base.v                                  ;
+; soc_system/synthesis/submodules/altera_avalon_st_pipeline_stage.sv                                ;
+; soc_system/synthesis/submodules/altera_default_burst_converter.sv                                 ;
+; soc_system/synthesis/submodules/altera_incr_burst_converter.sv                                    ;
+; soc_system/synthesis/submodules/altera_mem_if_dll_cyclonev.sv                                     ;
+; soc_system/synthesis/submodules/altera_mem_if_hard_memory_controller_top_cyclonev.sv              ;
+; soc_system/synthesis/submodules/altera_mem_if_hhp_qseq_synth_top.v                                ;
+; soc_system/synthesis/submodules/altera_mem_if_oct_cyclonev.sv                                     ;
+; soc_system/synthesis/submodules/altera_merlin_address_alignment.sv                                ;
+; soc_system/synthesis/submodules/altera_merlin_arbitrator.sv                                       ;
+; soc_system/synthesis/submodules/altera_merlin_axi_master_ni.sv                                    ;
+; soc_system/synthesis/submodules/altera_merlin_burst_adapter.sv                                    ;
+; soc_system/synthesis/submodules/altera_merlin_burst_adapter_13_1.sv                               ;
+; soc_system/synthesis/submodules/altera_merlin_burst_adapter_new.sv                                ;
+; soc_system/synthesis/submodules/altera_merlin_burst_adapter_uncmpr.sv                             ;
+; soc_system/synthesis/submodules/altera_merlin_burst_uncompressor.sv                               ;
+; soc_system/synthesis/submodules/altera_merlin_slave_agent.sv                                      ;
+; soc_system/synthesis/submodules/altera_merlin_slave_translator.sv                                 ;
+; soc_system/synthesis/submodules/altera_reset_controller.sdc                                       ;
+; soc_system/synthesis/submodules/altera_reset_controller.v                                         ;
+; soc_system/synthesis/submodules/altera_reset_synchronizer.v                                       ;
+; soc_system/synthesis/submodules/altera_wrap_burst_converter.sv                                    ;
+; soc_system/synthesis/submodules/hps.pre.xml                                                       ;
+; soc_system/synthesis/submodules/hps_AC_ROM.hex                                                    ;
+; soc_system/synthesis/submodules/hps_inst_ROM.hex                                                  ;
+; soc_system/synthesis/submodules/hps_sdram.v                                                       ;
+; soc_system/synthesis/submodules/hps_sdram_p0.ppf                                                  ;
+; soc_system/synthesis/submodules/hps_sdram_p0.sdc                                                  ;
+; soc_system/synthesis/submodules/hps_sdram_p0.sv                                                   ;
+; soc_system/synthesis/submodules/hps_sdram_p0_acv_hard_addr_cmd_pads.v                             ;
+; soc_system/synthesis/submodules/hps_sdram_p0_acv_hard_io_pads.v                                   ;
+; soc_system/synthesis/submodules/hps_sdram_p0_acv_hard_memphy.v                                    ;
+; soc_system/synthesis/submodules/hps_sdram_p0_acv_ldc.v                                            ;
+; soc_system/synthesis/submodules/hps_sdram_p0_altdqdqs.v                                           ;
+; soc_system/synthesis/submodules/hps_sdram_p0_clock_pair_generator.v                               ;
+; soc_system/synthesis/submodules/hps_sdram_p0_generic_ddio.v                                       ;
+; soc_system/synthesis/submodules/hps_sdram_p0_iss_probe.v                                          ;
+; soc_system/synthesis/submodules/hps_sdram_p0_parameters.tcl                                       ;
+; soc_system/synthesis/submodules/hps_sdram_p0_phy_csr.sv                                           ;
+; soc_system/synthesis/submodules/hps_sdram_p0_pin_assignments.tcl                                  ;
+; soc_system/synthesis/submodules/hps_sdram_p0_pin_map.tcl                                          ;
+; soc_system/synthesis/submodules/hps_sdram_p0_report_timing.tcl                                    ;
+; soc_system/synthesis/submodules/hps_sdram_p0_report_timing_core.tcl                               ;
+; soc_system/synthesis/submodules/hps_sdram_p0_reset.v                                              ;
+; soc_system/synthesis/submodules/hps_sdram_p0_reset_sync.v                                         ;
+; soc_system/synthesis/submodules/hps_sdram_p0_timing.tcl                                           ;
+; soc_system/synthesis/submodules/hps_sdram_pll.sv                                                  ;
+; soc_system/synthesis/submodules/sequencer/alt_types.pre.h                                         ;
+; soc_system/synthesis/submodules/sequencer/emif.pre.xml                                            ;
+; soc_system/synthesis/submodules/sequencer/sdram_io.pre.h                                          ;
+; soc_system/synthesis/submodules/sequencer/sequencer.pre.c                                         ;
+; soc_system/synthesis/submodules/sequencer/sequencer.pre.h                                         ;
+; soc_system/synthesis/submodules/sequencer/sequencer_auto.pre.h                                    ;
+; soc_system/synthesis/submodules/sequencer/sequencer_auto_ac_init.pre.c                            ;
+; soc_system/synthesis/submodules/sequencer/sequencer_auto_inst_init.pre.c                          ;
+; soc_system/synthesis/submodules/sequencer/sequencer_defines.pre.h                                 ;
+; soc_system/synthesis/submodules/sequencer/system.pre.h                                            ;
+; soc_system/synthesis/submodules/sequencer/tclrpt.pre.c                                            ;
+; soc_system/synthesis/submodules/sequencer/tclrpt.pre.h                                            ;
+; soc_system/synthesis/submodules/soc_system_hps_0.v                                                ;
+; soc_system/synthesis/submodules/soc_system_hps_0_fpga_interfaces.sdc                              ;
+; soc_system/synthesis/submodules/soc_system_hps_0_fpga_interfaces.sv                               ;
+; soc_system/synthesis/submodules/soc_system_hps_0_hps_io.v                                         ;
+; soc_system/synthesis/submodules/soc_system_hps_0_hps_io_border.sdc                                ;
+; soc_system/synthesis/submodules/soc_system_hps_0_hps_io_border.sv                                 ;
+; soc_system/synthesis/submodules/soc_system_irq_mapper.sv                                          ;
+; soc_system/synthesis/submodules/soc_system_mm_interconnect_0.v                                    ;
+; soc_system/synthesis/submodules/soc_system_mm_interconnect_0_avalon_st_adapter.v                  ;
+; soc_system/synthesis/submodules/soc_system_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv ;
+; soc_system/synthesis/submodules/soc_system_mm_interconnect_0_cmd_demux.sv                         ;
+; soc_system/synthesis/submodules/soc_system_mm_interconnect_0_cmd_mux.sv                           ;
+; soc_system/synthesis/submodules/soc_system_mm_interconnect_0_router.sv                            ;
+; soc_system/synthesis/submodules/soc_system_mm_interconnect_0_router_002.sv                        ;
+; soc_system/synthesis/submodules/soc_system_mm_interconnect_0_rsp_demux.sv                         ;
+; soc_system/synthesis/submodules/soc_system_mm_interconnect_0_rsp_mux.sv                           ;
+; soc_top.v                                                                                         ;
+; stp1.stp                                                                                          ;
+; truth_table.v                                                                                     ;
+; write_master.v                                                                                    ;
++---------------------------------------------------------------------------------------------------+
+
+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
+
+

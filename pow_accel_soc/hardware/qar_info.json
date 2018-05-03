@@ -1,0 +1,7 @@
+{
+	"common_dir" : "/home/lampa/Desktop/curl/curl_pow_fpga/",
+	"acds_version" : "Version 17.1.0",
+	"platform" : "linux",
+	"os" : "Linux Mint",
+	"qpf" : "curl_fpga.qpf"
+}

@@ -1,0 +1,3 @@
+High level Curl library in System Verilog. Contains Curl absorb, squeeze and transform functions + converter functions trits_from_trytes and trytes_from_trits
+
+Before executing make, set MODEL_TECH env to the directory in which MOdelsim's binary executables reside (e.g., ../modeltech/<platform>/)
