@@ -11,6 +11,6 @@ PoC parameters:
 - Hardware resources: 11% of 5CSEBA6U23I7 FPGA 
 - Operation frequency: 100 MHz
 - Hashrate: 1 204 819 hash/sec 
-- POW accelaretion: x90 - x500 (software POW calc: 10-50 min, hardware accelerated POW calc: 2-20 sec)
+- POW acceleration: x90 - x500 (software POW calc: 10-50 min, hardware accelerated POW calc: 2-20 sec)
 
 We plan add simultaneous calculation of multiple hashes and increase hashrate up to 10 Mhash/sec for DE10-nano
