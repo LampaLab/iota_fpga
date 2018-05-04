@@ -5,7 +5,7 @@ This project created for Innovate FPGA Contest:
 [Design video](https://www.youtube.com/watch?v=JJRlwTJHBCg), 
 [Design paper](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=EM080)
 
-Proof-of-Concept created for DE10-nano board, which based on Cyclone V 5CSEBA6U23I7 FPGA device
+Proof-of-Concept launched on DE10-nano board, which based on Cyclone V 5CSEBA6U23I7 FPGA device
 
 PoC parameters:
 - Hardware resources: 11% of 5CSEBA6U23I7 FPGA 
