@@ -13,4 +13,4 @@ PoC parameters:
 - Hashrate: 1 204 819 hash/sec 
 - POW accelaretion: x90 - x500 (software POW calc: 10-50 min, hardware accelerated POW calc: 2-20 sec)
 
-In near future we plan add simultaneous calculation of multiple hashes during POW and increase hashrate up to 10 Mhash/sec
+We plan add simultaneous calculation of multiple hashes during POW and increase hashrate up to 10 Mhash/sec
