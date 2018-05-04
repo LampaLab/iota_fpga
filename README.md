@@ -13,4 +13,4 @@ PoC parameters:
 - Hashrate: 1 204 819 hash/sec 
 - POW acceleration: x90 - x500 (for MWM=15 software POW: 10-50 min, hardware accelerated POW: 2-20 sec)
 
-We plan add simultaneous calculation of multiple hashes and increase hashrate up to 10 Mhash/sec for DE10-nano
+We plan to add simultaneous calculation of multiple hashes and increase hashrate up to 10 Mhash/sec for DE10-nano
