@@ -15,4 +15,4 @@ PoC parameters:
 
 We plan to add simultaneous calculation of multiple hashes and increase hashrate up to 10 Mhash/sec for DE10-nano
 
-[Here](https://github.com/LampaLab/iota_fpga/releases/tag/v0.1) you can download sd-card image with Linux and preinstalled software for IOTA hardware acceleration on DE10-nano board
+You can [download](https://github.com/LampaLab/iota_fpga/releases/tag/v0.1) sd-card image with Linux and preinstalled software for IOTA hardware acceleration on DE10-nano board
