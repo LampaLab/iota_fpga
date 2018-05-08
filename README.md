@@ -22,4 +22,4 @@ PoC parameters:
 
 For DE10-nano it is possible to increase the number of POW comput. units up to 20 and obtain 25 Mhash/sec on 100 MHz, but we do not have enough RAM to synthesize such large system.
 
-[Download](https://github.com/LampaLab/iota_fpga/releases/tag/v0.1) Linux sd-card image for IOTA hardware acceleration on DE10-nano board with [latest](https://github.com/LampaLab/iota_fpga/releases/tag/v0.2) rbf file
+[Download](https://github.com/LampaLab/iota_fpga/releases/tag/v0.1) Linux sd-card image for IOTA hardware accelerator on DE10-nano board with [latest](https://github.com/LampaLab/iota_fpga/releases/tag/v0.2) rbf file
