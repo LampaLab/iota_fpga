@@ -43,6 +43,8 @@ module curl_avalon ( i_clk,
                     i_master_readdata
 );
 
+parameter CU_NUM = 10;
+
 localparam  MASTER_DATA_WIDTH   = 128;
 localparam  MASTER_BE_WIDTH     = MASTER_DATA_WIDTH/8;
 localparam  MASTER_ADDR_WIDTH   = 28;
@@ -112,7 +114,8 @@ reg                                     curl_transform_ff;
 reg                                     curl_pow_ff;
 reg         [31:0]                      curl_pow_mwm_mask;
 reg         [53:0]                      curl_idata_ff;
-wire        [53:0]                      curl_odata;
+wire        [161:0]                     curl_nonce;
+reg         [80:0][1:0]                 curl_nonce_trits;
 wire                                    curl_otransforming;
 wire                                    curl_pow_finish;
 
@@ -138,7 +141,7 @@ reg                                     arm_user_data_available;
 reg         [2:0]                       state_ff;
 
 reg         [3:0]                       mem_trit_cnt_ff;
-reg         [4:0]                       curl_trit_cnt_ff;
+reg         [6:0]                       curl_trit_cnt_ff;
 
 reg                                     rw_master_ctrl;      
 
@@ -153,7 +156,8 @@ integer i;
 
 assign o_finish_int = finish_ff;
 
-curl_pow curl_pow_inst (.i_clk ( i_clk ),
+curl_pow #(.CU_NUM(CU_NUM))
+    curl_pow_inst (.i_clk ( i_clk ),
                 .i_arst_n ( curl_rst_n),
 				.i_we ( curl_we_ff ),
                 .i_addr ( curl_addr_ff ),
@@ -164,7 +168,7 @@ curl_pow curl_pow_inst (.i_clk ( i_clk ),
 				.o_transforming ( curl_otransforming ),
                 .o_pow_finish ( curl_pow_finish ),
                 .o_pow_hash_finish( hash_cnt_en ),
-				.o_data ( curl_odata )
+				.o_data ( curl_nonce )
 				);
 
 write_master #( .DATAWIDTH ( MASTER_DATA_WIDTH ),
@@ -445,10 +449,8 @@ always @(posedge i_clk, posedge i_arst) begin
 
                 state_ff            <= STORE_S;
                 awm_control_go      <= 1'b1;
-                curl_addr_ff        <= '0;
                 curl_trit_cnt_ff    <= '0;
                 mem_trit_cnt_ff     <= '0;
-                trits_to_process    <= 16'd81;
                 rw_master_ctrl      <= 1'b0;
                 tick_cnt_en_ff      <= 1'b0;
 
@@ -460,27 +462,10 @@ always @(posedge i_clk, posedge i_arst) begin
 
             if (!awm_user_buffer_full) begin
         
-                if (trits_to_process) begin
-
-                    awm_user_buffer_data[8*mem_trit_cnt_ff +: 8] <= $signed(curl_odata[2*curl_trit_cnt_ff +: 2]);
-                    trits_to_process    <= trits_to_process - 1'b1;
-
-                end else begin
-
-                    awm_user_buffer_data[8*mem_trit_cnt_ff +: 8] <= '0;
-
-                end
-
+ 		        awm_user_buffer_data[8*mem_trit_cnt_ff +: 8] <= $signed(curl_nonce_trits[curl_trit_cnt_ff]);
+                
                 curl_trit_cnt_ff        <= curl_trit_cnt_ff + 1'b1;
                 mem_trit_cnt_ff         <= mem_trit_cnt_ff + 1'b1;
-
-          
-                if (5'd26 == curl_trit_cnt_ff) begin
-            
-                    curl_trit_cnt_ff    <= '0;
-                    curl_addr_ff        <= curl_addr_ff + 1'b1;
-
-                end
 
                 if (4'd15 == mem_trit_cnt_ff) begin
 
@@ -554,8 +539,12 @@ always @(posedge i_clk) begin
     if (rst_cnt_ff)
         hash_cnt    <= '0;
     else if (hash_cnt_en)
-        hash_cnt    <= hash_cnt + 1'b1;
+        hash_cnt    <= hash_cnt + CU_NUM;
 
+end
+
+always @* begin
+    curl_nonce_trits = curl_nonce;
 end
 
 endmodule 

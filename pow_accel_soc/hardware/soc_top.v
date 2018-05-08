@@ -78,7 +78,7 @@ module soc_top(
     output              HPS_USB_STP
 );
 
-
+parameter CALC_UNIT_NUMBER = 11;
 
 wire            hps_fpga_rst;
 wire            hps_fpga_clk;
@@ -203,7 +203,8 @@ soc_system u0( .reset_bridge_0_out_reset_reset ( hps_fpga_rst ),
 			   .hps_0_f2h_irq0_irq                    ( irq_bus )                 //            hps_0_f2h_irq0.irq					
            );
 
-curl_avalon curl_avalon_inst( .i_clk ( hps_fpga_clk ),
+curl_avalon #(.CU_NUM(CALC_UNIT_NUMBER))
+    curl_avalon_inst( .i_clk ( hps_fpga_clk ),
                             .i_arst ( hps_fpga_rst ),
                             .o_finish_int ( irq_bus[0] ),
                             // slave IF

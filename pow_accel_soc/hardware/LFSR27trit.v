@@ -22,6 +22,8 @@ SOFTWARE.*/
 
 module LFSR27trit(i_clk, i_arst_n, o_rnd_trits);
 
+parameter UNIT_NUMBER = 0;
+
 input               i_clk;
 input               i_arst_n;
 output  reg [53:0]  o_rnd_trits;
@@ -35,7 +37,7 @@ integer i = 0;
 always @(posedge i_clk, negedge i_arst_n) begin
 
     if (~i_arst_n) begin
-        lfsr <= '0;
+        lfsr <= (1'b1 << 2*UNIT_NUMBER);
     end else begin
         lfsr <= {lfsr[52:0], lfsr_lsb};
     end
