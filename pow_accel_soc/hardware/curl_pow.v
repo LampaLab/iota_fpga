@@ -21,18 +21,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
 module curl_pow (i_clk,
-			i_arst_n,
-			i_we,
+            i_arst_n,
+            i_we,
             i_addr,
-			i_data,
-			i_transform,
+            i_data,
+            i_transform,
             i_pow,
             i_mwm_mask,
-			o_transforming,
+            o_transforming,
             o_pow_finish,
             o_pow_hash_finish,
             o_data
-			);
+            );
 
 parameter CU_NUM = 10;
 
@@ -53,17 +53,17 @@ localparam NUMBER_OF_ROUNDS = 81;
 
 localparam IDLE_ST = 0, TRANSFORM_ST = 1, POW_ST = 2, CHECK_POW_ST = 3, LOAD_MIDSTATE_ST = 4;
 
-input 								                        i_clk;
-input 								                        i_arst_n;
-input								                        i_we;
+input                           	                        i_clk;
+input                                                       i_arst_n;
+input                                                       i_we;
 input       [(ADDR_WIDTH-1):0]                              i_addr;
-input 		[(DATA_WIDTH-1):0]	                            i_data;
-input 								                        i_transform;
+input       [(DATA_WIDTH-1):0]	                            i_data;
+input                                                       i_transform;
 input                                                       i_pow;
 input       [(MWM_MASK_WIDTH-1):0]                          i_mwm_mask;
 
-output  reg							                        o_transforming;
-output 	reg	[2*NONCE_WORDS*TRITS_IN_WORD-1:0]	            o_data;
+output  reg                                                 o_transforming;
+output  reg [2*NONCE_WORDS*TRITS_IN_WORD-1:0]               o_data;
 output  reg                                                 o_pow_finish;        
 output  reg                                                 o_pow_hash_finish;
 

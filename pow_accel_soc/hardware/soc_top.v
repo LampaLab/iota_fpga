@@ -104,8 +104,8 @@ wire            slave_waitrequest;
 wire            slave_readdatavalid;
 
 soc_system u0( .reset_bridge_0_out_reset_reset ( hps_fpga_rst ),
-			   .clock_bridge_0_out_clk_clk ( hps_fpga_clk ),             
-			   //HPS ddr3
+               .clock_bridge_0_out_clk_clk ( hps_fpga_clk ),             
+               //HPS ddr3
                .memory_mem_a(HPS_DDR3_ADDR),                                //                         memory.mem_a
                .memory_mem_ba(HPS_DDR3_BA),                                 //                               .mem_ba
                .memory_mem_ck(HPS_DDR3_CK_P),                               //                               .mem_ck
@@ -179,28 +179,28 @@ soc_system u0( .reset_bridge_0_out_reset_reset ( hps_fpga_rst ),
                .hps_0_hps_io_hps_io_gpio_inst_GPIO54(HPS_KEY),              //                               .hps_io_gpio_inst_GPIO54
                .hps_0_hps_io_hps_io_gpio_inst_GPIO61(HPS_GSENSOR_INT),      //                               .hps_io_gpio_inst_GPIO61
              
-			   .mm_bridge_0_m0_waitrequest            ( slave_waitrequest ),            //            mm_bridge_0_m0.waitrequest
-			   .mm_bridge_0_m0_readdata               ( slave_readdata ),               //                          .readdata
-			   .mm_bridge_0_m0_readdatavalid          ( slave_readdatavalid ),          //                          .readdatavalid
-			   .mm_bridge_0_m0_burstcount             ( ),                              //                          .burstcount
-			   .mm_bridge_0_m0_writedata              ( slave_writedata ),              //                          .writedata
-			   .mm_bridge_0_m0_address                ( slave_address ),                //                          .address
-			   .mm_bridge_0_m0_write                  ( slave_write ),                  //                          .write
-			   .mm_bridge_0_m0_read                   ( slave_read ),                   //                          .read
-			   .mm_bridge_0_m0_byteenable             ( slave_byteenable ),             //                          .byteenable
-			   .mm_bridge_0_m0_debugaccess            ( ),                              //                          .debugaccess
+               .mm_bridge_0_m0_waitrequest            ( slave_waitrequest ),            //            mm_bridge_0_m0.waitrequest
+               .mm_bridge_0_m0_readdata               ( slave_readdata ),               //                          .readdata
+               .mm_bridge_0_m0_readdatavalid          ( slave_readdatavalid ),          //                          .readdatavalid
+               .mm_bridge_0_m0_burstcount             ( ),                              //                          .burstcount
+               .mm_bridge_0_m0_writedata              ( slave_writedata ),              //                          .writedata
+               .mm_bridge_0_m0_address                ( slave_address ),                //                          .address
+               .mm_bridge_0_m0_write                  ( slave_write ),                  //                          .write
+               .mm_bridge_0_m0_read                   ( slave_read ),                   //                          .read
+               .mm_bridge_0_m0_byteenable             ( slave_byteenable ),             //                          .byteenable
+               .mm_bridge_0_m0_debugaccess            ( ),                              //                          .debugaccess
 				
-			   .hps_0_f2h_sdram0_data_address         ( master_address ),         //     hps_0_f2h_sdram0_data.address
-			   .hps_0_f2h_sdram0_data_burstcount      ( 1'b1 ),                        //                          .burstcount
-		       .hps_0_f2h_sdram0_data_waitrequest     ( master_waitrequest ),     //                          .waitrequest
-		       .hps_0_f2h_sdram0_data_readdata        ( master_readdata ),        //                          .readdata
-			   .hps_0_f2h_sdram0_data_readdatavalid   ( master_readdatavalid ),   //                          .readdatavalid
-			   .hps_0_f2h_sdram0_data_read            ( master_read ),            //                          .read
-			   .hps_0_f2h_sdram0_data_writedata       ( master_writedata ),       //                          .writedata
-			   .hps_0_f2h_sdram0_data_byteenable      ( master_byteenable ),      //                          .byteenable
-			   .hps_0_f2h_sdram0_data_write           ( master_write ),           //                          .write
+               .hps_0_f2h_sdram0_data_address         ( master_address ),         //     hps_0_f2h_sdram0_data.address
+               .hps_0_f2h_sdram0_data_burstcount      ( 1'b1 ),                        //                          .burstcount
+               .hps_0_f2h_sdram0_data_waitrequest     ( master_waitrequest ),     //                          .waitrequest
+               .hps_0_f2h_sdram0_data_readdata        ( master_readdata ),        //                          .readdata
+               .hps_0_f2h_sdram0_data_readdatavalid   ( master_readdatavalid ),   //                          .readdatavalid
+               .hps_0_f2h_sdram0_data_read            ( master_read ),            //                          .read
+               .hps_0_f2h_sdram0_data_writedata       ( master_writedata ),       //                          .writedata
+               .hps_0_f2h_sdram0_data_byteenable      ( master_byteenable ),      //                          .byteenable
+               .hps_0_f2h_sdram0_data_write           ( master_write ),           //                          .write
 
-			   .hps_0_f2h_irq0_irq                    ( irq_bus )                 //            hps_0_f2h_irq0.irq					
+               .hps_0_f2h_irq0_irq                    ( irq_bus )                 //            hps_0_f2h_irq0.irq					
            );
 
 curl_avalon #(.CU_NUM(CALC_UNIT_NUMBER))
@@ -218,11 +218,11 @@ curl_avalon #(.CU_NUM(CALC_UNIT_NUMBER))
                             .o_slave_readdatavalid ( slave_readdatavalid ),
                             // master IF
                             .o_master_address ( master_address ),
-	                        .o_master_write ( master_write ),
+                            .o_master_write ( master_write ),
                             .o_master_read ( master_read ),
-	                        .o_master_byteenable ( master_byteenable ),
-	                        .o_master_writedata ( master_writedata ),
-	                        .i_master_waitrequest ( master_waitrequest ),
+                            .o_master_byteenable ( master_byteenable ),
+                            .o_master_writedata ( master_writedata ),
+                            .i_master_waitrequest ( master_waitrequest ),
                             .i_master_readdatavalid ( master_readdatavalid ),
                             .i_master_readdata ( master_readdata )
                         );

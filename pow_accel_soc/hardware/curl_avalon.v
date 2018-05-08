@@ -34,11 +34,11 @@ module curl_avalon ( i_clk,
                     o_slave_readdatavalid,
                     // master IF
                     o_master_address,
-	                o_master_write,
+                    o_master_write,
                     o_master_read,
-	                o_master_byteenable,
-	                o_master_writedata,
-	                i_master_waitrequest,
+                    o_master_byteenable,
+                    o_master_writedata,
+                    i_master_waitrequest,
                     i_master_readdatavalid,
                     i_master_readdata
 );
@@ -159,16 +159,16 @@ assign o_finish_int = finish_ff;
 curl_pow #(.CU_NUM(CU_NUM))
     curl_pow_inst (.i_clk ( i_clk ),
                 .i_arst_n ( curl_rst_n),
-				.i_we ( curl_we_ff ),
+                .i_we ( curl_we_ff ),
                 .i_addr ( curl_addr_ff ),
-				.i_data ( curl_idata_ff ),
-				.i_transform ( curl_transform_ff ),
+                .i_data ( curl_idata_ff ),
+                .i_transform ( curl_transform_ff ),
                 .i_pow( curl_pow_ff ),
                 .i_mwm_mask( curl_pow_mwm_mask ),
-				.o_transforming ( curl_otransforming ),
+                .o_transforming ( curl_otransforming ),
                 .o_pow_finish ( curl_pow_finish ),
                 .o_pow_hash_finish( hash_cnt_en ),
-				.o_data ( curl_nonce )
+                .o_data ( curl_nonce )
 				);
 
 write_master #( .DATAWIDTH ( MASTER_DATA_WIDTH ),
@@ -240,7 +240,7 @@ assign o_slave_readdatavalid    = i_slave_read;
 
 always @* begin
 
-	o_slave_readdata = 'x;
+    o_slave_readdata = 'x;
 
     case (i_slave_address)
 
@@ -462,7 +462,7 @@ always @(posedge i_clk, posedge i_arst) begin
 
             if (!awm_user_buffer_full) begin
         
- 		        awm_user_buffer_data[8*mem_trit_cnt_ff +: 8] <= $signed(curl_nonce_trits[curl_trit_cnt_ff]);
+                awm_user_buffer_data[8*mem_trit_cnt_ff +: 8] <= $signed(curl_nonce_trits[curl_trit_cnt_ff]);
                 
                 curl_trit_cnt_ff        <= curl_trit_cnt_ff + 1'b1;
                 mem_trit_cnt_ff         <= mem_trit_cnt_ff + 1'b1;
