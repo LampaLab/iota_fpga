@@ -6,7 +6,7 @@ This project created for Innovate FPGA Contest:
 [Design paper](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=EM080)
 
 Performance & Resources:
-- Parameterized design (set the number of POW comput. units with parameter CALC_UNIT_NUMBER)
+- Parameterized design (the number of POW comput. units can be set using parameter CALC_UNIT_NUMBER)
 - Hardware resources: 1125 ALMs, 2177 flip-flops per POW computation unit
 - Hashrate: 1 204 819 hash/sec per POW computation unit at 100 MHz
 - Fmax: 120-150 MHz for Cyclone V depending on number of POW comp. units
