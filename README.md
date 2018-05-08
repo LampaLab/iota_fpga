@@ -9,7 +9,7 @@ Performance & Resources:
 - Parameterized design (the number of POW comput. units can be set using parameter CALC_UNIT_NUMBER)
 - Hardware resources: 1125 ALMs, 2177 flip-flops per POW comput. unit
 - Hashrate: 1 204 819 hash/sec per POW comput. unit at 100 MHz
-- Fmax: 120-150 MHz for Cyclone V depending on number of POW comp. units
+- Fmax: 120-150 MHz for Cyclone V depending on number of POW comput. units
 
 Proof-of-Concept launched on DE10-nano board (Cyclone V 5CSEBA6U23I7 FPGA device) 
 
