@@ -21,13 +21,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
 module curl_transform (i_clk,
-						i_arst_n,
-				        i_we,
+                        i_arst_n,
+                        i_we,
                         i_addr,
-						i_data,
-						i_transform,
-						o_transforming,
-						o_data
+                        i_data,
+                        i_transform,
+                        o_transforming,
+                        o_data
 					);
 
 localparam DATA_WIDTH = 54;
@@ -42,14 +42,14 @@ localparam ADDR_WIDTH = $clog2(STATE_WORDS_IO);
 					
 localparam NUMBER_OF_ROUNDS = 81;
 
-input 								                    i_clk;
-input 								                    i_arst_n;
-input								                    i_we;
+input                                                   i_clk;
+input                                                   i_arst_n;
+input                                                   i_we;
 input       [(ADDR_WIDTH - 1) : 0]                      i_addr;
-input 		[(DATA_WIDTH - 1) : 0]	                    i_data;
-input 								                    i_transform;
-output  reg							                    o_transforming;
-output 	reg	[(DATA_WIDTH - 1) : 0]	                    o_data;
+input       [(DATA_WIDTH - 1) : 0]                      i_data;
+input                                                   i_transform;
+output  reg                                             o_transforming;
+output  reg [(DATA_WIDTH - 1) : 0]                      o_data;
 
 reg [$clog2(NUMBER_OF_ROUNDS) - 1:0]                    round_cnt_ff;
 
