@@ -30,7 +30,7 @@
 //END_MODULE_NAME--------------------------------------------------------------
 
 
-`timescale 1 ns / 1 ps
+`timescale 1 ps / 1 ps
 module lcell (in, out);
     input in;
     output out;
@@ -39,7 +39,7 @@ module lcell (in, out);
 endmodule
 
 // BEGINNING OF MODULE
-`timescale 1 ns / 1 ps
+`timescale 1 ps / 1 ps
 
 `define TRUE 1 
 `define FALSE 0 
