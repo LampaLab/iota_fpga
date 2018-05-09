@@ -33,11 +33,11 @@ module curl_avalon ( i_clk,
                     o_slave_readdatavalid,
                     // master IF
                     o_master_address,
-	                o_master_write,
+                    o_master_write,
                     o_master_read,
-	                o_master_byteenable,
-	                o_master_writedata,
-	                i_master_waitrequest,
+                    o_master_byteenable,
+                    o_master_writedata,
+                    i_master_waitrequest,
                     i_master_readdatavalid,
                     i_master_readdata
 );
@@ -331,7 +331,7 @@ always @(posedge i_clk, posedge i_arst) begin
             arm_rst                 <= 1'b1;
             awm_rst                 <= 1'b1; 
 
-            if (start_ff && src_buf_len) begin
+            if (start_ff) begin
             
                 state_ff            <= LOAD_S;
                 arm_control_go      <= 1'b1;
@@ -351,7 +351,7 @@ always @(posedge i_clk, posedge i_arst) begin
 
         LOAD_S: begin
 
-            if (arm_user_data_available || !trits_to_process) begin
+            if (arm_user_data_available) begin
 
                 if (trits_to_process) begin
 
