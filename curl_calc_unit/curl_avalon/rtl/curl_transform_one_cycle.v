@@ -28,7 +28,7 @@ module curl_transform (i_clk,
                         i_transform,
                         o_transforming,
                         o_data
-					);
+                        );
 
 localparam DATA_WIDTH = 54;
 localparam STATE_WORDS = 27;
@@ -48,8 +48,8 @@ input                                                   i_we;
 input       [(ADDR_WIDTH - 1) : 0]                      i_addr;
 input       [(DATA_WIDTH - 1) : 0]                      i_data;
 input                                                   i_transform;
-output  reg							                    o_transforming;
-output 	reg	[(DATA_WIDTH - 1) : 0]                      o_data;
+output  reg                                             o_transforming;
+output  reg [(DATA_WIDTH - 1) : 0]                      o_data;
 
 reg [$clog2(NUMBER_OF_ROUNDS) - 1:0]                    round_cnt_ff;
 
