@@ -1,0 +1,1 @@
+Before executing RUN_LINUX.sh, set MTI_HOME env. var. with path to modelsim catalog (e.g. export MTI_HOME=~/modelsim102c/modeltech)
