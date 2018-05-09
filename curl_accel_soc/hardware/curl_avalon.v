@@ -34,14 +34,14 @@ module curl_avalon ( i_clk,
                     o_slave_readdatavalid,
                     // master IF
                     o_master_address,
-	                o_master_write,
+                    o_master_write,
                     o_master_read,
-	                o_master_byteenable,
-	                o_master_writedata,
-	                i_master_waitrequest,
+                    o_master_byteenable,
+                    o_master_writedata,
+                    i_master_waitrequest,
                     i_master_readdatavalid,
                     i_master_readdata
-);
+                    );
 
 localparam  MASTER_DATA_WIDTH   = 128;
 localparam  MASTER_BE_WIDTH     = MASTER_DATA_WIDTH/8;
@@ -136,14 +136,14 @@ integer i;
 assign o_finish_int = finish_ff;
 
 curl_transform transform_inst (.i_clk ( i_clk ),
-						        .i_arst_n ( curl_rst_n),
-				                .i_we ( curl_we_ff ),
+                                .i_arst_n ( curl_rst_n),
+                                .i_we ( curl_we_ff ),
                                 .i_addr ( curl_addr_ff ),
-						        .i_data ( curl_idata_ff ),
-						        .i_transform ( curl_transform_ff ),
-						        .o_transforming ( curl_otransforming ),
-						        .o_data ( curl_odata )
-					            );
+                                .i_data ( curl_idata_ff ),
+                                .i_transform ( curl_transform_ff ),
+                                .o_transforming ( curl_otransforming ),
+                                .o_data ( curl_odata )
+                                );
 
 write_master #( .DATAWIDTH ( MASTER_DATA_WIDTH ),
                 .BYTEENABLEWIDTH ( MASTER_BE_WIDTH ),
