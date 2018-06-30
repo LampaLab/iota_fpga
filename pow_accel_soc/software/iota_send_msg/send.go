@@ -1,4 +1,7 @@
 
+// This example utilizes standard lib for IOTA messaging (https://github.com/habpygo/mam.client.go) 
+// and modified IOTA light node in GoLang which supports our hardware accel(https://github.com/LampaLab/giota)
+
 package main
 
 import (
