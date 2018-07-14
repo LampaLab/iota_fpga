@@ -43,7 +43,8 @@ module curl_avalon ( i_clk,
                     i_master_readdata
 );
 
-parameter CU_NUM = 10;
+parameter CL_NUM = 6; //Number of clusters
+parameter CU_NUM = 4; //Number of calc units in cluster
 
 localparam  MASTER_DATA_WIDTH   = 128;
 localparam  MASTER_BE_WIDTH     = MASTER_DATA_WIDTH/8;
@@ -114,10 +115,12 @@ reg                                     curl_transform_ff;
 reg                                     curl_pow_ff;
 reg         [31:0]                      curl_pow_mwm_mask;
 reg         [53:0]                      curl_idata_ff;
-wire        [161:0]                     curl_nonce;
-reg         [80:0][1:0]                 curl_nonce_trits;
-wire                                    curl_otransforming;
-wire                                    curl_pow_finish;
+wire        [CL_NUM-1:0][161:0]         nonces;
+reg         [161:0]                     nonce;
+reg         [80:0][1:0]                 nonce_trits;
+wire        [CL_NUM-1:0]                curl_otransforming;
+wire        [CL_NUM-1:0]                curl_pow_finish;
+reg                                     pow_finish_ff;
 
 reg         [MASTER_DATA_WIDTH-1:0]     awm_user_buffer_data;
 wire        [MASTER_ADDR_WIDTH-1:0]     awm_master_address;
@@ -150,26 +153,36 @@ reg         [63:0]                      tick_cnt;
 
 reg                                     rst_cnt_ff;
 reg                                     tick_cnt_en_ff;
-wire                                    hash_cnt_en;
+wire        [CL_NUM-1:0]                hash_cnt_en;
 
 integer i;
 
+genvar n;
+
 assign o_finish_int = finish_ff;
 
-curl_pow #(.CU_NUM(CU_NUM))
-    curl_pow_inst (.i_clk ( i_clk ),
-                .i_arst_n ( curl_rst_n),
-                .i_we ( curl_we_ff ),
-                .i_addr ( curl_addr_ff ),
-                .i_data ( curl_idata_ff ),
-                .i_transform ( curl_transform_ff ),
-                .i_pow( curl_pow_ff ),
-                .i_mwm_mask( curl_pow_mwm_mask ),
-                .o_transforming ( curl_otransforming ),
-                .o_pow_finish ( curl_pow_finish ),
-                .o_pow_hash_finish( hash_cnt_en ),
-                .o_data ( curl_nonce )
-				);
+generate
+
+for (n = 0; n < CL_NUM; n++) begin: pow_clusters
+
+    curl_pow #(.CU_NUM(CU_NUM), .CL_NUM(n))
+        curl_pow_inst (.i_clk ( i_clk ),
+                    .i_arst_n ( curl_rst_n),
+                    .i_we ( curl_we_ff ),
+                    .i_addr ( curl_addr_ff ),
+                    .i_data ( curl_idata_ff ),
+                    .i_transform ( curl_transform_ff ),
+                    .i_pow( curl_pow_ff ),
+                    .i_mwm_mask( curl_pow_mwm_mask ),
+
+                    .o_transforming ( curl_otransforming[n] ),
+                    .o_pow_finish ( curl_pow_finish[n] ),
+                    .o_pow_hash_finish( hash_cnt_en[n] ),
+                    .o_data ( nonces[n] )
+				    );
+end
+
+endgenerate
 
 write_master #( .DATAWIDTH ( MASTER_DATA_WIDTH ),
                 .BYTEENABLEWIDTH ( MASTER_BE_WIDTH ),
@@ -437,7 +450,7 @@ always @(posedge i_clk, posedge i_arst) begin
 
         TRANSFORM_S: begin
 
-            if (!curl_transform_ff && !curl_otransforming) begin              
+            if (!curl_transform_ff && !curl_otransforming[0]) begin              
                 state_ff    <= LOAD_S;
             end
 
@@ -445,9 +458,10 @@ always @(posedge i_clk, posedge i_arst) begin
 
         POW_S: begin
 
-            if (curl_pow_finish) begin
+            if (pow_finish_ff) begin
 
                 state_ff            <= STORE_S;
+                curl_rst_n          <= 1'b0;
                 awm_control_go      <= 1'b1;
                 curl_trit_cnt_ff    <= '0;
                 mem_trit_cnt_ff     <= '0;
@@ -462,7 +476,7 @@ always @(posedge i_clk, posedge i_arst) begin
 
             if (!awm_user_buffer_full) begin
         
-                awm_user_buffer_data[8*mem_trit_cnt_ff +: 8] <= $signed(curl_nonce_trits[curl_trit_cnt_ff]);
+                awm_user_buffer_data[8*mem_trit_cnt_ff +: 8] <= $signed(nonce_trits[curl_trit_cnt_ff]);
                 
                 curl_trit_cnt_ff        <= curl_trit_cnt_ff + 1'b1;
                 mem_trit_cnt_ff         <= mem_trit_cnt_ff + 1'b1;
@@ -538,13 +552,31 @@ always @(posedge i_clk) begin
 
     if (rst_cnt_ff)
         hash_cnt    <= '0;
-    else if (hash_cnt_en)
-        hash_cnt    <= hash_cnt + CU_NUM;
+    else if (hash_cnt_en[0])
+        hash_cnt    <= hash_cnt + CU_NUM*CL_NUM;
+
+end
+
+always @(posedge i_clk, posedge i_arst) begin
+
+    if (i_arst) begin
+        pow_finish_ff <= 1'b0;
+    end else begin
+        pow_finish_ff <= |curl_pow_finish;
+    end
+
+end
+
+always @(posedge i_clk) begin
+
+    for (i=0; i<CL_NUM; i=i+1)
+        if (curl_pow_finish[i])
+            nonce   <= nonces[i];    
 
 end
 
 always @* begin
-    curl_nonce_trits = curl_nonce;
+    nonce_trits = nonce;
 end
 
 endmodule 

@@ -37,7 +37,7 @@ integer i = 0;
 always @(posedge i_clk, negedge i_arst_n) begin
 
     if (~i_arst_n) begin
-        lfsr <= (1'b1 << 2*UNIT_NUMBER);
+        lfsr <= (1'b1 << UNIT_NUMBER);
     end else begin
         lfsr <= {lfsr[52:0], lfsr_lsb};
     end

@@ -34,7 +34,8 @@ module curl_pow (i_clk,
             o_data
             );
 
-parameter CU_NUM = 10;
+parameter CU_NUM = 4;
+parameter CL_NUM = 1;
 
 localparam DATA_WIDTH = 54;
 localparam STATE_WORDS = 27;
@@ -218,10 +219,10 @@ generate
 
 for (n = 0; n < CU_NUM; n++) begin: nonce_generator
 
-    LFSR27trit #(.UNIT_NUMBER(n)) LFSR27trit_inst(.i_clk (i_clk), 
-                                                    .i_arst_n (i_arst_n),
-                                                    .o_rnd_trits (rnd_trits[n])
-                                                  );
+    LFSR27trit #(.UNIT_NUMBER(CU_NUM*CL_NUM + n)) LFSR27trit_inst(.i_clk (i_clk), 
+                                                                    .i_arst_n (i_arst_n),
+                                                                    .o_rnd_trits (rnd_trits[n])
+                                                                  );
 
     //nonce ff part
     always @(posedge i_clk, negedge i_arst_n)
@@ -297,7 +298,6 @@ always @(posedge i_clk, negedge i_arst_n) begin
         o_pow_hash_finish   <= 1'b0;
     end else begin
         
-        o_pow_finish        <= 1'b0;
         o_pow_hash_finish   <= 1'b0;
     
         case (state_ff)
@@ -309,6 +309,7 @@ always @(posedge i_clk, negedge i_arst_n) begin
                 o_transforming      <= 1'b1;  
                 round_cnt_ff        <= '0;
                 transform_m_we_ff   <= 1'b1;
+                o_pow_finish        <= 1'b0;
             end 
 
             if ( i_pow ) begin
