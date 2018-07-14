@@ -6,20 +6,18 @@ This project created for Innovate FPGA Contest:
 [Design paper](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=EM080)
 
 Performance & Resources:
-- Parameterized design (the number of POW comput. units can be set using parameter CALC_UNIT_NUMBER)
-- Hardware resources: 1 125 ALMs, 2 177 flip-flops per POW comput. unit
+- Parameterized design. Parameter CL_NUM specifies the number of POW clusters. Parameter CU_NUM defines the number of POW computing units per cluster
+- Hardware resources: 1 200 ALMs, 2 400 flip-flops per POW computing unit
 - Hashrate: 1 204 819 hash/sec per POW comput. unit at 100 MHz
-- Fmax: 120-150 MHz for Cyclone V depending on number of POW comput. units
+- Fmax: 130-140 MHz for Cyclone V depending on number of POW comput. units
 
-Proof-of-Concept launched on DE10-nano board (Cyclone V 5CSEBA6U23I7 FPGA device) 
+Proof-of-Concept launched on DE10-nano board (Cyclone V 5CSEBA6U23I7 FPGA device) which costs 110-130$ 
 
 PoC parameters:
-- 11 POW comput. units
+- 28 POW computing units (CL_NUM = 7, CU_NUM = 4)
 - Operation frequency: 100 MHz 
-- Hashrate: 13 253 012 hash/sec
-- Resources: 12 377 ALMs, 23 945 flip-flops (30% of 5CSEBA6U23I7 FPGA)
-- POW acceleration: x1000 (for MWM=15 software POW on DE10-nano: 10-50 min, hardware accel. POW: 0.1-4 sec, 0.6 sec in average)
-
-For DE10-nano it is possible to increase the number of POW comput. units up to 20 and obtain 25 Mhash/sec on 100 MHz, but we do not have enough RAM on our laptops to synthesize such large system.
+- Hashrate: 33 734 940 hash/sec
+- Resources: 33 239 ALMs, 68 019 flip-flops (79% of 5CSEBA6U23I7 FPGA)
+- POW acceleration: x2000 (for MWM=15 software POW on DE10-nano: 10-50 min, hardware accel. POW: 0.01-1.5 sec, 0.2 sec in average)
 
 [Download](https://github.com/LampaLab/iota_fpga/releases/tag/v0.1) Linux sd-card image for IOTA hardware accelerator on DE10-nano board and [latest](https://github.com/LampaLab/iota_fpga/releases/tag/v0.2) rbf file
