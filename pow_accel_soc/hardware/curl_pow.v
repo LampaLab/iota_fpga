@@ -220,8 +220,7 @@ generate
 for (n = 0; n < CU_NUM; n++) begin: nonce_generator
 
     LFSR27trit #(.UNIT_NUMBER(CU_NUM*CL_NUM + n)) LFSR27trit_inst(.i_clk (i_clk), 
-                                                                    .i_arst_n (i_arst_n),
-                                                                    .o_rnd_trits (rnd_trits[n])
+                                                                  .o_rnd_trits (rnd_trits[n])
                                                                   );
 
     //nonce ff part

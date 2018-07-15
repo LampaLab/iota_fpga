@@ -28,20 +28,14 @@ input               i_clk;
 input               i_arst_n;
 output  reg [53:0]  o_rnd_trits;
 
-reg     [53:0]      lfsr;
+reg     [53:0]      lfsr = (1'b1 << UNIT_NUMBER);
 
 wire    lfsr_lsb = ~(lfsr[53] ^ lfsr[52] ^ lfsr[17] ^ lfsr[16]);
 
 integer i = 0;
 
-always @(posedge i_clk, negedge i_arst_n) begin
-
-    if (~i_arst_n) begin
-        lfsr <= (1'b1 << UNIT_NUMBER);
-    end else begin
-        lfsr <= {lfsr[52:0], lfsr_lsb};
-    end
-
+always @(posedge i_clk) begin
+    lfsr <= {lfsr[52:0], lfsr_lsb};
 end
 
 always @* begin
