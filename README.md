@@ -18,6 +18,6 @@ PoC parameters:
 - Operation frequency: 100 MHz 
 - Hashrate: 33 734 940 hash/sec
 - Resources: 33 239 ALMs, 68 019 flip-flops (79% of 5CSEBA6U23I7 FPGA)
-- POW acceleration: x2000 (for MWM=15 software POW on DE10-nano: 10-50 min, hardware accel. POW: 0.01-1.5 sec, 0.2 sec in average)
+- POW acceleration: x2000 (for MWM=15 software POW on DE10-nano: 10-50 min, hardware accel. POW: 0.01-1.5 sec, 0.4 sec in average)
 
 [Download](https://github.com/LampaLab/iota_fpga/releases/tag/v0.1) Linux sd-card image for IOTA hardware accelerator on DE10-nano board and [latest](https://github.com/LampaLab/iota_fpga/releases/tag/v0.3) rbf file
