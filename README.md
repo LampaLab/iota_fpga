@@ -22,4 +22,8 @@ PoC parameters:
 
 [Download](https://github.com/LampaLab/iota_fpga/releases/tag/v0.1) Linux sd-card image for IOTA hardware accelerator on DE10-nano board and [latest](https://github.com/LampaLab/iota_fpga/releases/tag/v0.3) rbf file
 
-If you like this project, please donate some MIOTA to support it further development: U9XOVBWJUBCE99ZIKIUGXZFSSGLUAPHUG9XZTVOVHZ99HVTQXET9CD9V9FMDNLSLPQDYXOHKBA9MVHI9ZOVCVHVJXA
+If you like this project, please donate some MIOTA to support it further development: 
+
+U9XOVBWJUBCE99ZIKIUGXZFSSGLUAPHUG9XZTVOVHZ99HVTQXET9CD9V9FMDNLSLPQDYXOHKBA9MVHI9ZOVCVHVJXA
+
+Thank you for the interest to the project!
