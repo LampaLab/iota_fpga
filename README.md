@@ -26,4 +26,4 @@ If you like this work, please donate some MIOTA to support it further developmen
 
 [U9XOVBWJUBCE99ZIKIUGXZFSSGLUAPHUG9XZTVOVHZ99HVTQXET9CD9V9FMDNLSLPQDYXOHKBA9MVHI9ZOVCVHVJXA](https://thetangle.org/address/U9XOVBWJUBCE99ZIKIUGXZFSSGLUAPHUG9XZTVOVHZ99HVTQXET9CD9V9FMDNLSLPQDYXOHKBA9MVHI9Z)
 
-Thank you for the interest to the project!
+Thank you for interest to project!
